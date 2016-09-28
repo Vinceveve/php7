@@ -66,9 +66,6 @@ RUN printf "\n" | pecl install zmq && \
 # Message pack for messaging
 RUN printf "\n" | pecl install msgpack && \
   echo "extension=msgpack.so" | tee /usr/local/etc/php/conf.d/msgpack.ini
-# Message serialization
-RUN printf "\n" | pecl install igbinary && \
-  echo "extension=igbinary.so" | tee /usr/local/etc/php/conf.d/igbinary.ini
 # MongoDB
 RUN printf "\n" | pecl install mongodb && \
   echo "extension=mongodb.so" | tee /usr/local/etc/php/conf.d/mongodb.ini
