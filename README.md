@@ -1,4 +1,4 @@
-# About
+# Docker image for PHP 7
 Fork of official docker php image.  
 Based on debian jessie
 
