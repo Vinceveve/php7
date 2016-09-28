@@ -9,7 +9,6 @@ Includes :
  - PHP : 7.0.11
  - ZeroMQ : 4.1.5 
  - Msgpack : 2.0.1
- - IgBinary : 1.2.1
  - MongoDB : 1.1.8
  - Ev : 1.0.3
  
