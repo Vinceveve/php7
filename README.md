@@ -14,3 +14,7 @@ Includes :
  
  
 Vim and curl are also bundled for easy debugging
+
+## Configuration 
+
+Default folder is /code you should mount your php project here 
