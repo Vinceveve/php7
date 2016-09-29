@@ -3,6 +3,7 @@ FROM php:latest
 ENV PHP_VERSION 7.0.11
 ENV PHP_FILENAME php-7.0.11.tar.xz
 ENV PHP_SHA256 2ee6968b5875f2f38700c58a189aad859a6a0b85fc337aa102ec2dc3652c3b7b
+ENV PHP_TIMEZONE "Europe/Paris"
 
 # To have libzmq 4.1
 RUN echo "deb http://httpredir.debian.org/debian/ testing main contrib non-free" >> /etc/apt/sources.list && \
@@ -69,6 +70,9 @@ RUN printf "\n" | pecl install msgpack && \
 # MongoDB
 RUN printf "\n" | pecl install mongodb && \
   echo "extension=mongodb.so" | tee /usr/local/etc/php/conf.d/mongodb.ini
+# Message serialization, not compatible php7
+#RUN printf "\n" | pecl install igbinary && \
+#  echo "extension=igbinary.so" | tee /usr/local/etc/php/conf.d/igbinary.ini
 # Pthreads
 #RUN printf "\n" | pecl install pthreads && \
 #  echo "extension=pthreads.so" | tee /usr/local/etc/php/conf.d/pthreads.ini
@@ -96,7 +100,7 @@ RUN printf "\n" | pecl install ev && \
 #  echo "extension=rdkafka.so" | tee /usr/local/etc/php/conf.d/rdkafka.ini
 
 # timezone for php is now paris
-RUN echo "date.timezone = Europe/Paris" | tee /usr/local/etc/php/conf.d/timezone.ini
+RUN echo "date.timezone = "$PHP_TIMEZONE | tee /usr/local/etc/php/conf.d/timezone.ini
 # Set french as default language
 ADD locale.gen /etc/locale.gen
 RUN locale-gen en_US en_US.UTF-8 fr_FR.UTF-8 && update-locale LANG=fr_FR.UTF-8
