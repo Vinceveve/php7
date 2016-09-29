@@ -18,3 +18,7 @@ Vim and curl are also bundled for easy debugging
 ## Configuration 
 
 Default folder is /code you should mount your php project here 
+
+```bash
+docker run -ti -v ~/my-project:/code vinceve/php7:latest bash
+```
